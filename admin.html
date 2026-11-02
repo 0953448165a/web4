@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Адміністрування — Породи тварин</title>
+  <meta name="description" content="Навчальна імітація адміністративного інтерфейсу: таблиця порід та форма додавання.">
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+</head>
+<body>
+  <a href="#main">Перейти до вмісту</a>
+  <header>
+    <p><a href="index.html"><img src="images/logo.svg" alt="" width="40" height="40"> Породи тварин</a></p>
+    <nav aria-label="Основне меню">
+      <ul>
+        <li><a href="index.html">Каталог</a></li>
+        <li><a href="about.html">Про проєкт</a></li>
+      </ul>
+    </nav>
+    <form action="index.html" method="get" role="search">
+      <label for="site-search">Пошук породи</label>
+      <input id="site-search" name="q" type="search" maxlength="60" autocomplete="off">
+      <button type="submit">Знайти</button>
+    </form>
+  </header>
+  <main id="main">
+    <h1>Адміністрування каталогу</h1>
+    <p>Ця сторінка — навчальна імітація адміністративного інтерфейсу. Посилання в підвалі й перевірка полів у браузері не захищають дані: контроль доступу та остаточна перевірка виконуються на сервері.</p>
+    <h2>Породи каталогу</h2>
+    <p>На цьому етапі кожне посилання «Редагувати» відкриває одну навчальну форму — для лабрадора-ретривера.</p>
+    <table>
+      <caption>Породи каталогу</caption>
+      <thead>
+        <tr>
+          <th scope="col">Назва</th>
+          <th scope="col">Категорія</th>
+          <th scope="col">Розмірна група</th>
+          <th scope="col">Середня вага</th>
+          <th scope="col">Для квартири</th>
+          <th scope="col">Дії</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Лабрадор-ретривер</th>
+          <td>Собаки</td>
+          <td>велика</td>
+          <td><data value="29.0">29.0 кг</data></td>
+          <td>підходить</td>
+          <td><a href="admin-edit.html">Редагувати Лабрадор-ретривер</a></td>
+        </tr>
+        <tr>
+          <th scope="row">Німецька вівчарка</th>
+          <td>Собаки</td>
+          <td>велика</td>
+          <td><data value="32.0">32.0 кг</data></td>
+          <td>не підходить</td>
+          <td><a href="admin-edit.html">Редагувати Німецька вівчарка</a></td>
+        </tr>
+        <tr>
+          <th scope="row">Чихуахуа</th>
+          <td>Собаки</td>
+          <td>мала</td>
+          <td><data value="2.5">2.5 кг</data></td>
+          <td>підходить</td>
+          <td><a href="admin-edit.html">Редагувати Чихуахуа</a></td>
+        </tr>
+        <tr>
+          <th scope="row">Джек-рассел-тер’єр</th>
+          <td>Собаки</td>
+          <td>мала</td>
+          <td><data value="6.5">6.5 кг</data></td>
+          <td>підходить</td>
+          <td><a href="admin-edit.html">Редагувати Джек-рассел-тер’єр</a></td>
+        </tr>
+        <tr>
+          <th scope="row">Мейн-кун</th>
+          <td>Коти</td>
+          <td>велика</td>
+          <td><data value="7.5">7.5 кг</data></td>
+          <td>підходить</td>
+          <td><a href="admin-edit.html">Редагувати Мейн-кун</a></td>
+        </tr>
+        <tr>
+          <th scope="row">Британська короткошерста</th>
+          <td>Коти</td>
+          <td>середня</td>
+          <td><data value="5.5">5.5 кг</data></td>
+          <td>підходить</td>
+          <td><a href="admin-edit.html">Редагувати Британська короткошерста</a></td>
+        </tr>
+        <tr>
+          <th scope="row">Бенгальська кішка</th>
+          <td>Коти</td>
+          <td>середня</td>
+          <td><data value="5.0">5.0 кг</data></td>
+          <td>підходить</td>
+          <td><a href="admin-edit.html">Редагувати Бенгальська кішка</a></td>
+        </tr>
+        <tr>
+          <th scope="row">Фландрський гігант</th>
+          <td>Кролики</td>
+          <td>велика</td>
+          <td><data value="6.0">6.0 кг</data></td>
+          <td>не підходить</td>
+          <td><a href="admin-edit.html">Редагувати Фландрський гігант</a></td>
+        </tr>
+      </tbody>
+    </table>
+    <h2 id="add-title">Додати породу</h2>
+    <form id="breed-form" action="admin.html" method="get" aria-labelledby="add-title">
+      <fieldset>
+        <legend>Основні дані</legend>
+        <p>
+          <label for="breed-title">Назва породи</label>
+          <input id="breed-title" name="title" type="text" required minlength="2" maxlength="60" autocomplete="off">
+        </p>
+        <p>
+          <label for="breed-code">Код породи</label>
+          <input id="breed-code" name="code" type="text" required pattern="[A-Z]{2}-[0-9]{3}" maxlength="6" autocomplete="off" aria-describedby="breed-code-hint">
+        </p>
+        <p id="breed-code-hint">Формат: дві великі латинські літери, дефіс і три цифри, наприклад DG-014.</p>
+        <p>
+          <label for="breed-category">Категорія</label>
+          <select id="breed-category" name="category" required>
+          <option value="">Оберіть категорію</option>
+          <option value="dogs">Собаки</option>
+          <option value="cats">Коти</option>
+          <option value="rabbits">Кролики</option>
+          <option value="other">Інше</option>
+          </select>
+        </p>
+        <p>
+          <label for="breed-size">Розмірна група</label>
+          <select id="breed-size" name="sizeGroup" required>
+          <option value="">Оберіть групу</option>
+          <option value="small">Мала</option>
+          <option value="medium">Середня</option>
+          <option value="large">Велика</option>
+          </select>
+        </p>
+        <p>
+          <label for="breed-weight">Середня вага, кг</label>
+          <input id="breed-weight" name="weight" type="number" required min="0.1" max="100" step="0.1" inputmode="decimal" aria-describedby="breed-weight-hint">
+        </p>
+        <p id="breed-weight-hint">Число від 0,1 до 100 з кроком 0,1 кг.</p>
+        <p>
+          <label for="breed-added">Дата додавання</label>
+          <input id="breed-added" name="addedAt" type="date" required min="2024-01-01" max="2027-12-31" aria-describedby="breed-added-hint">
+        </p>
+        <p id="breed-added-hint">Дата від 2024-01-01 до 2027-12-31.</p>
+      </fieldset>
+      <fieldset>
+        <legend>Опис і стан</legend>
+        <p>
+          <label for="breed-image">Зображення</label>
+          <input id="breed-image" name="image" type="file" accept=".svg,.webp,.png,image/svg+xml,image/webp,image/png" aria-describedby="breed-image-hint">
+        </p>
+        <p id="breed-image-hint">Файл SVG, WebP або PNG. Поле не обов’язкове.</p>
+        <p>
+          <label for="breed-description">Опис</label>
+          <textarea id="breed-description" name="description" rows="4" cols="40" maxlength="500" aria-describedby="breed-description-hint"></textarea>
+        </p>
+        <p id="breed-description-hint">Не більше 500 символів.</p>
+        <p>
+          <input id="breed-apartment" name="apartmentFriendly" type="checkbox" value="yes">
+          <label for="breed-apartment">Підходить для утримання в квартирі</label>
+        </p>
+      </fieldset>
+      <p>
+        <button type="submit">Додати</button>
+        <button type="reset">Очистити</button>
+      </p>
+    </form>
+  </main>
+  <footer>
+    <p>Породи тварин</p>
+    <nav aria-label="Службова навігація">
+      <ul>
+        <li><a href="index.html">Каталог</a></li>
+        <li><a href="about.html">Про проєкт</a></li>
+        <li><a href="admin.html" aria-current="page">Адміністрування</a></li>
+      </ul>
+    </nav>
+    <p><small>© 2026 Породи тварин. Навчальний проєкт, Мудрий Ярослав, КН-43-5.</small></p>
+  </footer>
+</body>
+</html>
