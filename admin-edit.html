@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Редагування: Лабрадор-ретривер — Породи тварин</title>
+  <meta name="description" content="Навчальна форма редагування породи «Лабрадор-ретривер».">
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+</head>
+<body>
+  <a href="#main">Перейти до вмісту</a>
+  <header>
+    <p><a href="index.html"><img src="images/logo.svg" alt="" width="40" height="40"> Породи тварин</a></p>
+    <nav aria-label="Основне меню">
+      <ul>
+        <li><a href="index.html">Каталог</a></li>
+        <li><a href="about.html">Про проєкт</a></li>
+      </ul>
+    </nav>
+    <form action="index.html" method="get" role="search">
+      <label for="site-search">Пошук породи</label>
+      <input id="site-search" name="q" type="search" maxlength="60" autocomplete="off">
+      <button type="submit">Знайти</button>
+    </form>
+  </header>
+  <main id="main">
+    <nav aria-label="Хлібні крихти">
+      <ol>
+        <li><a href="admin.html">Адміністрування</a></li>
+        <li aria-current="page">Редагування: Лабрадор-ретривер</li>
+      </ol>
+    </nav>
+    <h1 id="edit-title">Редагування: Лабрадор-ретривер</h1>
+    <form id="breed-edit-form" action="admin.html" method="get" aria-labelledby="edit-title">
+      <input type="hidden" name="id" value="1">
+      <fieldset>
+        <legend>Основні дані</legend>
+        <p>
+          <label for="breed-title">Назва породи</label>
+          <input id="breed-title" name="title" type="text" required minlength="2" maxlength="60" autocomplete="off" value="Лабрадор-ретривер">
+        </p>
+        <p>
+          <label for="breed-code">Код породи</label>
+          <input id="breed-code" name="code" type="text" required pattern="[A-Z]{2}-[0-9]{3}" maxlength="6" autocomplete="off" aria-describedby="breed-code-hint" value="DG-001">
+        </p>
+        <p id="breed-code-hint">Формат: дві великі латинські літери, дефіс і три цифри, наприклад DG-014.</p>
+        <p>
+          <label for="breed-category">Категорія</label>
+          <select id="breed-category" name="category" required>
+          <option value="">Оберіть категорію</option>
+          <option value="dogs" selected>Собаки</option>
+          <option value="cats">Коти</option>
+          <option value="rabbits">Кролики</option>
+          <option value="other">Інше</option>
+          </select>
+        </p>
+        <p>
+          <label for="breed-size">Розмірна група</label>
+          <select id="breed-size" name="sizeGroup" required>
+          <option value="">Оберіть групу</option>
+          <option value="small">Мала</option>
+          <option value="medium">Середня</option>
+          <option value="large" selected>Велика</option>
+          </select>
+        </p>
+        <p>
+          <label for="breed-weight">Середня вага, кг</label>
+          <input id="breed-weight" name="weight" type="number" required min="0.1" max="100" step="0.1" inputmode="decimal" aria-describedby="breed-weight-hint" value="29.0">
+        </p>
+        <p id="breed-weight-hint">Число від 0,1 до 100 з кроком 0,1 кг.</p>
+        <p>
+          <label for="breed-added">Дата додавання</label>
+          <input id="breed-added" name="addedAt" type="date" required min="2024-01-01" max="2027-12-31" aria-describedby="breed-added-hint" value="2024-03-12">
+        </p>
+        <p id="breed-added-hint">Дата від 2024-01-01 до 2027-12-31.</p>
+      </fieldset>
+      <fieldset>
+        <legend>Опис і стан</legend>
+        <p>
+          <label for="breed-image">Зображення</label>
+          <input id="breed-image" name="image" type="file" accept=".svg,.webp,.png,image/svg+xml,image/webp,image/png" aria-describedby="breed-image-hint">
+        </p>
+        <p id="breed-image-hint">Файл SVG, WebP або PNG. Поле не обов’язкове.</p>
+        <p>
+          <label for="breed-description">Опис</label>
+          <textarea id="breed-description" name="description" rows="4" cols="40" maxlength="500" aria-describedby="breed-description-hint">Дружелюбна активна порода середнього та великого розміру. Добре вчиться, потребує щоденних прогулянок.</textarea>
+        </p>
+        <p id="breed-description-hint">Не більше 500 символів.</p>
+        <p>
+          <input id="breed-apartment" name="apartmentFriendly" type="checkbox" value="yes" checked>
+          <label for="breed-apartment">Підходить для утримання в квартирі</label>
+        </p>
+      </fieldset>
+      <p>
+        <img src="images/dog.svg" alt="Поточне зображення породи" width="200" height="150">
+      </p>
+      <p>
+        <button type="submit">Зберегти зміни</button>
+        <button type="reset">Скасувати зміни</button>
+        <a href="admin.html">Повернутися до адміністрування</a>
+      </p>
+    </form>
+  </main>
+  <footer>
+    <p>Породи тварин</p>
+    <nav aria-label="Службова навігація">
+      <ul>
+        <li><a href="index.html">Каталог</a></li>
+        <li><a href="about.html">Про проєкт</a></li>
+        <li><a href="admin.html" aria-current="page">Адміністрування</a></li>
+      </ul>
+    </nav>
+    <p><small>© 2026 Породи тварин. Навчальний проєкт, Мудрий Ярослав, КН-43-5.</small></p>
+  </footer>
+</body>
+</html>
