@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Лабрадор-ретривер — Породи тварин</title>
+  <meta name="description" content="Порода лабрадор-ретривер: характеристики та форма запиту на консультацію.">
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+</head>
+<body>
+  <a href="#main">Перейти до вмісту</a>
+  <header>
+    <p><a href="index.html"><img src="images/logo.svg" alt="" width="40" height="40"> Породи тварин</a></p>
+    <nav aria-label="Основне меню">
+      <ul>
+        <li><a href="index.html">Каталог</a></li>
+        <li><a href="about.html">Про проєкт</a></li>
+      </ul>
+    </nav>
+    <form action="index.html" method="get" role="search">
+      <label for="site-search">Пошук породи</label>
+      <input id="site-search" name="q" type="search" maxlength="60" autocomplete="off">
+      <button type="submit">Знайти</button>
+    </form>
+  </header>
+  <main id="main">
+    <nav aria-label="Хлібні крихти">
+      <ol>
+        <li><a href="index.html">Каталог</a></li>
+        <li aria-current="page">Лабрадор-ретривер</li>
+      </ol>
+    </nav>
+    <h1>Лабрадор-ретривер</h1>
+    <figure>
+      <img src="images/dog.svg" alt="Ілюстрація: собака" width="400" height="300">
+      <figcaption>Лабрадор-ретривер</figcaption>
+    </figure>
+    <h2>Характеристики</h2>
+    <dl>
+      <div><dt>Категорія</dt><dd>Собаки</dd></div>
+      <div><dt>Розмірна група</dt><dd>велика</dd></div>
+      <div><dt>Середня вага</dt><dd>29 кг</dd></div>
+      <div><dt>Для квартири</dt><dd>так</dd></div>
+    </dl>
+    <section aria-labelledby="review-title">
+      <h2 id="review-title">Запит на консультацію</h2>
+      <p>Залиште контакти та бажану дату зв’язку. Форма надсилається методом GET, тож дані видно в адресному рядку.</p>
+      <form id="review-form" action="details.html" method="get">
+        <input type="hidden" name="breedCode" value="DG-001">
+        <p>
+          <label for="review-name">Ім’я</label>
+          <input id="review-name" name="name" type="text" maxlength="60" autocomplete="name">
+        </p>
+        <p>
+          <label for="review-email">Електронна пошта</label>
+          <input id="review-email" name="email" type="email" required autocomplete="email">
+        </p>
+        <p>
+          <label for="review-phone">Телефон</label>
+          <input id="review-phone" name="phone" type="tel" pattern="\+380[0-9]{9}" autocomplete="tel" aria-describedby="review-phone-hint">
+        </p>
+        <p id="review-phone-hint">Необов’язково. Формат: +380 і 9 цифр, наприклад +380501112233.</p>
+        <p>
+          <label for="review-date">Бажана дата зв’язку</label>
+          <input id="review-date" name="contactDate" type="date" required min="2026-11-02" max="2027-12-31" aria-describedby="review-date-hint">
+        </p>
+        <p id="review-date-hint">Дата від 2026-11-02 до 2027-12-31.</p>
+        <p>
+          <label for="review-method">Зручний спосіб зв’язку</label>
+          <input id="review-method" name="contactMethod" type="text" list="review-methods" maxlength="40" autocomplete="off">
+          <datalist id="review-methods">
+            <option value="Телефон"></option>
+            <option value="Електронна пошта"></option>
+            <option value="Месенджер"></option>
+          </datalist>
+        </p>
+        <fieldset>
+          <legend>Наскільки вас цікавить порода</legend>
+          <p><label><input type="radio" name="rating" value="1" required> 1</label></p>
+          <p><label><input type="radio" name="rating" value="2"> 2</label></p>
+          <p><label><input type="radio" name="rating" value="3"> 3</label></p>
+          <p><label><input type="radio" name="rating" value="4"> 4</label></p>
+          <p><label><input type="radio" name="rating" value="5"> 5</label></p>
+        </fieldset>
+        <p>
+          <label for="review-experience">Досвід утримання тварин</label>
+          <input id="review-experience" name="experience" type="range" min="0" max="5" step="1" value="2" aria-describedby="review-experience-hint">
+        </p>
+        <p id="review-experience-hint">Від 0 (немає досвіду) до 5 (багаторічний досвід). Повзунок завжди передає число.</p>
+        <p>
+          <label for="review-comment">Коментар</label>
+          <textarea id="review-comment" name="comment" rows="4" cols="40" minlength="10" maxlength="500" aria-describedby="review-comment-hint"></textarea>
+        </p>
+        <p id="review-comment-hint">Необов’язково. Якщо пишете коментар, залиште від 10 до 500 символів.</p>
+        <p>
+          <input id="review-agree" name="agree" type="checkbox" value="yes" required>
+          <label for="review-agree">Погоджуюся з правилами публікації відгуку</label>
+        </p>
+        <p><button type="submit">Надіслати запит</button></p>
+      </form>
+    </section>
+  </main>
+  <footer>
+    <p>Породи тварин</p>
+    <nav aria-label="Службова навігація">
+      <ul>
+        <li><a href="index.html">Каталог</a></li>
+        <li><a href="about.html">Про проєкт</a></li>
+        <li><a href="admin.html">Адміністрування</a></li>
+      </ul>
+    </nav>
+    <p><small>© 2026 Породи тварин. Навчальний проєкт, Мудрий Ярослав, КН-43-5.</small></p>
+  </footer>
+</body>
+</html>
